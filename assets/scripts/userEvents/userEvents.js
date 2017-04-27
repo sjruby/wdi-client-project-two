@@ -38,7 +38,7 @@ const onSignOut = function (event) {
   event.preventDefault()
 
   console.log('you signed out')
-  api.signOut(data)
+  api.signOut()
     .done(ui.signOutSuccess)
     .catch(ui.onError)
 }
