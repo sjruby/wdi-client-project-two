@@ -11,15 +11,39 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
+    <h1>Get shooping...Sign In/Up</h1>
+      <p id="message"> HERES YOUR MESSAGE </p>
+      <h2> Sign Up </h2>
+      <form class='userEvents' id='sign-up'>
+        <div class="form-group">
+          <input type="text" name="credentials[email]" id="signUpEmail" placeholder="Enter Email">
+          <input type="password" name="credentials[password]" id="signUpPassword" placeholder="Enter Password">
+          <input type="password" name="credentials[password_confirmation]" id="signUpPassword_confirmation" placeholder="Confirm Password">
+        </div>
+        <button type="submit" class="btn btn-default">Sign Up</button>
+      </form>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <h2>Sign in</h2>
+      <form class='userEvents' id='sign-in'>
+        <div class="form-group">
+          <input type="text" name="credentials[email]" id="email" placeholder="Enter Email">
+          <input type="password" name="credentials[password]" id="password" placeholder="Enter PW">
+        </div>
+        <button type="submit" class="btn btn-default">Sign In</button>
+      </form>
     </body>
+
+    <h2> Change PW's </h2>
+    <form class='userEvents' id='change-pw'>
+      <div class="form-group">
+        <input type="password" name="passwords[old]" id="old-pw" placeholder="Enter old PW">
+        <input type="password" name="passwords[new]" id="new-pw" placeholder="Enter new PW">
+      </div>
+      <button type="submit" class="btn btn-default">Change PW</button>
+    </form>
+
+    <h2> Sign out </h2>
+    <form class='userEvents sign-out' id='sign-out'>
+      <button type="submit" class="btn btn-default sign-out">Sign Out</button>
+    </form>
 </html>
