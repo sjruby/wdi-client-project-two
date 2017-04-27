@@ -1,6 +1,6 @@
 // const $signUpUI = $('#signUpMessage')
 // // const $signInUI = $('#signInMessage')
-const $message = $('#changePWMessage')
+const $message = $('#message')
 const store = require('../store')
 
 const onSignUpSuccess = function () {
