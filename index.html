@@ -1,55 +1,72 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags unless you know what you are doing -->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+    <title>Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags unless you know what you are doing -->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <h1>Get shooping...Sign In/Up I GOT CHANGED</h1>
-      <p id="message"> HERES YOUR MESSAGE </p>
+    <!-- Do not add `link` tags unless you know what you are doing -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <h2> list boards </h2>
-      <form class='userEvents' id='list-boards'>
-        <button type="submit" class="btn btn-default">list boards</button>
-      </form>
-      <h2> Sign Up </h2>
-      <form class='userEvents' id='sign-up'>
-        <div class="form-group">
-          <input type="text" name="credentials[email]" id="signUpEmail" placeholder="Enter Email">
-          <input type="password" name="credentials[password]" id="signUpPassword" placeholder="Enter Password">
-          <input type="password" name="credentials[password_confirmation]" id="signUpPassword_confirmation" placeholder="Confirm Password">
-        </div>
-        <button type="submit" class="btn btn-default">Sign Up</button>
-      </form>
+    <!-- Do not add `script` tags unless you know what you are doing -->
+    <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+<h1>Get shooping...Sign In/Up I GOT CHANGED</h1>
+<p id="message"> HERES YOUR MESSAGE </p>
 
-      <h2>Sign in</h2>
-      <form class='userEvents' id='sign-in'>
-        <div class="form-group">
-          <input type="text" name="credentials[email]" id="email" placeholder="Enter Email">
-          <input type="password" name="credentials[password]" id="password" placeholder="Enter PW">
-        </div>
-        <button type="submit" class="btn btn-default">Sign In</button>
-      </form>
-    </body>
+<ul class="flex-container game-board" id="game-board">
+</ul>
 
-    <h2> Change PW's </h2>
-    <form class='userEvents' id='change-pw'>
-      <div class="form-group">
+<button id="button" type="submit" class="start_blank_board">Start Blank Board DOSNLT WORK YET</button>
+<button id="button" type="submit" class="randomize_board">Randomize the Board</button>
+<button id="button" type="submit" class="clear_board">Clear This Board</button>
+<button id="button" type="submit" class="animate_board">Animate this Board</button>
+<button id="button" type="submit" class="stop_animation">Stop Animation</button>
+<h2> Save this board </h2>
+<form class='userEvents' id='save-board'>
+    <div class="form-group">
+        <input type="text" name="board[title]" accept=""placeholder="Enter title">
+    </div>
+    <button type="submit" class="btn btn-default">The board!</button>
+</form>
+
+<h2> list boards </h2>
+<form class='userEvents' id='list-boards'>
+    <button type="submit" class="btn btn-default">list boards</button>
+</form>
+<h2> Sign Up </h2>
+<form class='userEvents' id='sign-up'>
+    <div class="form-group">
+        <input type="text" name="credentials[email]" id="signUpEmail" placeholder="Enter Email">
+        <input type="password" name="credentials[password]" id="signUpPassword" placeholder="Enter Password">
+        <input type="password" name="credentials[password_confirmation]" id="signUpPassword_confirmation" placeholder="Confirm Password">
+    </div>
+    <button type="submit" class="btn btn-default">Sign Up</button>
+</form>
+
+<h2>Sign in</h2>
+<form class='userEvents' id='sign-in'>
+    <div class="form-group">
+        <input type="text" name="credentials[email]" id="email" placeholder="Enter Email">
+        <input type="password" name="credentials[password]" id="password" placeholder="Enter PW">
+    </div>
+    <button type="submit" class="btn btn-default">Sign In</button>
+</form>
+</body>
+
+<h2> Change PW's </h2>
+<form class='userEvents' id='change-pw'>
+    <div class="form-group">
         <input type="password" name="passwords[old]" id="old-pw" placeholder="Enter old PW">
         <input type="password" name="passwords[new]" id="new-pw" placeholder="Enter new PW">
-      </div>
-      <button type="submit" class="btn btn-default">Change PW</button>
-    </form>
+    </div>
+    <button type="submit" class="btn btn-default">Change PW</button>
+</form>
 
-    <h2> Sign out </h2>
-    <form class='userEvents sign-out' id='sign-out'>
-      <button type="submit" class="btn btn-default sign-out">Sign Out</button>
-    </form>
+<h2> Sign out </h2>
+<form class='userEvents sign-out' id='sign-out'>
+    <button type="submit" class="btn btn-default sign-out">Sign Out</button>
+</form>
 
 </html>

@@ -11,6 +11,26 @@ const getBoards = function () {
   })
 }
 
+const getBoard = function (id) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiOrigins.production + '/boards/' + id,
+    // headers: {
+    //   Authorization: 'Token token=' + store.store.token
+    // }
+  })
+}
+// NEED TO REPLACE THE ONE BELOW WITH THE ID OF THE BOARD
+const saveBoard = function (data) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiOrigins.production + '/boards/1',
+    data: data
+  })
+}
+
   module.exports = {
-    getBoards
+    getBoards,
+    saveBoard,
+    getBoard
   }

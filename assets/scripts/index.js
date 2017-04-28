@@ -16,8 +16,19 @@ $(() => {
   $('#change-pw').on('submit', userEvents.onChangePW)
   $('#sign-out').on('submit', userEvents.onSignOut)
   $('#list-boards').on('submit', boardActions.onListBoards)
+  $('.randomize_board').on('click', boardActions.onRandomizeBoard)
+  $('.clear_board').on('click', boardActions.onClearBoard)
+  $('.animate_board').on('click', boardActions.onAnimateBoard)
+  $('.stop_animation').on('click', boardActions.onStopBoard)
+  $('#save-board').on('submit', boardActions.onSaveBoard)
 })
 
+
+//Event handlers for HANDLEBARS stuff, this is active even if
+// the stuff is renderd after DOM load, b/c it's on the document level...
+$(document).on('click','.list_of_boards',boardActions.onGetBoard)
+
+// $('.save-list_of_boards').on('click', boardActions.onGetBoard)
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 

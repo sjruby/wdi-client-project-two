@@ -3,7 +3,7 @@ const board = require('../boardStore')
 
 const renderBoard = function () {
   console.log('board render worked')
-  const cells = board.boardStore
+  const cells = board.cellsStore
   const boardHTML = createBoardTemplate({cells})
   $('.game-board').append(boardHTML)
 }

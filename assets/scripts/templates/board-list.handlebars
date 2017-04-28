@@ -1,4 +1,7 @@
 
   {{#each boards}}
-  <p> {{this.title}}</p>
+  <h2> Your Boards </h2>
+  <ol>
+  <li id={{this.id}} class="list_of_boards"> {{this.title}}</li>
+</ol>
   {{/each}}

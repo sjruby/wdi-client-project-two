@@ -14,6 +14,13 @@ const getGamesSuccesss = function (data) {
   $message.append(boardsHTML)
 }
 
+const getBoardSuccsess = function (data) {
+  board.boardStore = data
+  board.cellsStore = JSON.parse(board.boardStore.board.cells)
+  console.log(board.cellsStore)
+}
+
 module.exports = {
-  getGamesSuccesss
+  getGamesSuccesss,
+  getBoardSuccsess
 }

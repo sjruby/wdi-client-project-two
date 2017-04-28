@@ -29,8 +29,8 @@ const randomizeCellValues = function (board) {
 // this is where the board size is arbitraily set to 5x5
 const randomizeBoard = function () {
   const blankCanvas = new Board(23, 23)
-  board.boardStore = randomizeCellValues(blankCanvas)
-  console.log(board.boardStore)
+  board.cellsStore = randomizeCellValues(blankCanvas)
+  console.log(board.cellsStore)
   // return board.boardStore
 }
 

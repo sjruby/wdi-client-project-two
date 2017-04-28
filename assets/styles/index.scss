@@ -1,2 +1,34 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  width: 280px;
+  flex-flow: row wrap;
+}
+
+.flex-item {
+  // background: tomato;
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+
+.value-1 {
+  background: tomato
+}
+
+.value-2{
+  background: skyblue;
+}
+
+.list_of_boards{
+  color: blue;
+}

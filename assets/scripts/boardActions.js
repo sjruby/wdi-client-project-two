@@ -3,6 +3,7 @@ const renderBoards = require('./board_scripts/render_board.js')
 const api = require('./board_scripts/board_api.js')
 const ui = require('./board_scripts/board_ui.js')
 const board = require('./boardStore')
+const getFormFields = require('../../lib/get-form-fields')
 let nIntervId
 
 const clearCurrentBoard = function () {
@@ -19,10 +20,19 @@ const onRandomizeBoard = function () {
 }
 
 const animateBoard = function () {
-  createBoardArrays.updateCellValues(board.boardStore)
+  createBoardArrays.updateCellValues(board.cellsStore)
   clearCurrentBoard()
   renderBoards.renderBoard()
   // console.log('HELLO')
+}
+
+
+const onGetBoard = function (li) {
+  const boardID = this.id
+  console.log('the board you clicked has ID: ' + boardID )
+  api.getBoard(this.id)
+    .done(ui.getBoardSuccsess, renderBoards.renderBoard )
+    // .catch(ui.failure)
 }
 
 const onAnimateBoard = function () {
@@ -46,10 +56,27 @@ const onListBoards = function (event) {
     .then(ui.getGamesSuccesss)
     .catch(ui.failure)
 }
+
+const onSaveBoard = function () {
+  event.preventDefault()
+  const titlePrep = getFormFields(this)
+  const title = titlePrep.board.title
+
+  const data = {}
+  data.cells = JSON.stringify(board.cellsStore)
+  data.title = title
+  console.log(data)
+  api.saveBoard(data)
+    // .then(ui.getGamesSuccesss)
+    // .catch(ui.failure)
+}
+
 module.exports = {
   onRandomizeBoard,
   onClearBoard,
   onAnimateBoard,
   onStopBoard,
-  onListBoards
+  onListBoards,
+  onSaveBoard,
+  onGetBoard
 }
