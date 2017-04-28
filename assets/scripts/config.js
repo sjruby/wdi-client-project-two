@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://tiler-wdi-p2.herokuapp.com'
+    production: 'https://protected-ridge-58465.herokuapp.com/'
   }
 }
 
