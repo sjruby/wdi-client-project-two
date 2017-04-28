@@ -20,13 +20,17 @@ $(() => {
   $('.clear_board').on('click', boardActions.onClearBoard)
   $('.animate_board').on('click', boardActions.onAnimateBoard)
   $('.stop_animation').on('click', boardActions.onStopBoard)
+  $('.delete-board').on('click', boardActions.onDeleteBoard)
   $('#save-board').on('submit', boardActions.onSaveBoard)
+  $('#save-board-first-time').on('submit', boardActions.onSaveNewBoard)
 })
 
 
 //Event handlers for HANDLEBARS stuff, this is active even if
 // the stuff is renderd after DOM load, b/c it's on the document level...
 $(document).on('click','.list_of_boards',boardActions.onGetBoard)
+
+
 
 // $('.save-list_of_boards').on('click', boardActions.onGetBoard)
 // use require with a reference to bundle the file and use it in this file

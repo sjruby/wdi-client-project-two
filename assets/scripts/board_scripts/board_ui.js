@@ -17,12 +17,12 @@ const getGamesSuccesss = function (data) {
 const getBoardSuccsess = function (data) {
   board.boardStore = data
   board.cellsStore = JSON.parse(board.boardStore.board.cells)
-  console.log(board.cellsStore)
+  console.log("The board you clicked on has ID: " + board.boardStore.board.id)
 }
 
 const failure = function (response) {
 
-  $message.append(response)
+  $message.text("That bombed....")
 }
 
 module.exports = {

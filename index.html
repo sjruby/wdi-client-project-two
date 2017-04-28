@@ -23,8 +23,17 @@
 <button id="button" type="submit" class="clear_board">Clear This Board</button>
 <button id="button" type="submit" class="animate_board">Animate this Board</button>
 <button id="button" type="submit" class="stop_animation">Stop Animation</button>
-<h2> Save this board </h2>
+<button type="button" type="submit" class="delete-board">Delete Board</button>
+<h2> Save this board - if it's already been saved </h2>
 <form class='userEvents' id='save-board'>
+    <div class="form-group">
+        <input type="text" name="board[title]" accept=""placeholder="Enter title">
+    </div>
+    <button type="submit" class="btn btn-default">The board!</button>
+</form>
+
+<h2> Save this board - if its NEVER BEEN SAVED</h2>
+<form class='userEvents' id='save-board-first-time'>
     <div class="form-group">
         <input type="text" name="board[title]" accept=""placeholder="Enter title">
     </div>

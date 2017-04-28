@@ -61,7 +61,6 @@ const onSaveBoard = function () {
   event.preventDefault()
   const titlePrep = getFormFields(this)
   const title = titlePrep.board.title
-
   const data = {}
   data.cells = JSON.stringify(board.cellsStore)
   data.title = title
@@ -71,6 +70,26 @@ const onSaveBoard = function () {
     .catch(ui.failure)
 }
 
+const onSaveNewBoard = function () {
+  event.preventDefault()
+  const titlePrep = getFormFields(this)
+  const title = titlePrep.board.title
+  const data = {}
+  data.cells = JSON.stringify(board.cellsStore)
+  data.title = title
+
+  console.log('cute-trying to make a board!' + title)
+  api.saveNewBoard(data)
+    // .then(ui.getGamesSuccesss)
+    .catch(ui.failure)
+}
+
+const onDeleteBoard = function () {
+  console.log('yo Im here')
+  api.deleteBoard()
+    // .then(ui.getGamesSuccesss)
+    .catch(ui.failure)
+}
 module.exports = {
   onRandomizeBoard,
   onClearBoard,
@@ -78,5 +97,7 @@ module.exports = {
   onStopBoard,
   onListBoards,
   onSaveBoard,
-  onGetBoard
+  onGetBoard,
+  onSaveNewBoard,
+  onDeleteBoard
 }
