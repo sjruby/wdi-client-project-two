@@ -20,6 +20,11 @@ const getBoardSuccsess = function (data) {
   console.log(board.cellsStore)
 }
 
+const failure = function (response) {
+
+  $message.append(response)
+}
+
 module.exports = {
   getGamesSuccesss,
   getBoardSuccsess

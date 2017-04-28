@@ -68,7 +68,7 @@ const onSaveBoard = function () {
   console.log(data)
   api.saveBoard(data)
     // .then(ui.getGamesSuccesss)
-    // .catch(ui.failure)
+    .catch(ui.failure)
 }
 
 module.exports = {
