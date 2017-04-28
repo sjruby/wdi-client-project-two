@@ -8,12 +8,14 @@ $(() => {
 })
 
 const userEvents = require('./userEvents/userEvents')
+const boardActions = require('./boardActions')
 
 $(() => {
   $('#sign-up').on('submit', userEvents.onSignUp)
   $('#sign-in').on('submit', userEvents.onSignIn)
   $('#change-pw').on('submit', userEvents.onChangePW)
   $('#sign-out').on('submit', userEvents.onSignOut)
+  $('#list-boards').on('submit', boardActions.onListBoards)
 })
 
 // use require with a reference to bundle the file and use it in this file
