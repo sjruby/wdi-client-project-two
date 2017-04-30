@@ -53,14 +53,13 @@ const onClearBoard = function () {
 const onListBoards = function (event) {
   event.preventDefault()
   api.getBoards()
-    .then(ui.getGamesSuccesss)
+    .done(onClearBoard(), ui.getGamesSuccesss)
     .catch(ui.failure)
 }
 
 const onSaveBoard = function () {
   event.preventDefault()
-  const titlePrep = getFormFields(this)
-  const title = titlePrep.board.title
+  const title = board.boardStore.title
   const data = {}
   data.cells = JSON.stringify(board.cellsStore)
   data.title = title

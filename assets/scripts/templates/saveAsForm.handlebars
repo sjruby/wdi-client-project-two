@@ -1,9 +1,34 @@
-<div class="save-as">
-<h2> Save this board - if its NEVER BEEN SAVED</h2>
-<form class='userEvents' id='save-board-first-time'>
-    <div class="form-group">
-        <input type="text" name="board[title]" accept="" placeholder="Enter title">
-    </div>
-    <button type="submit" class="btn btn-default">The board!</button>
-</form>
-</div>
+
+
+ <button type="button" class="btn btn-default" data-toggle="modal" data-target="#newGame">
+    New Game
+    </button>
+
+          <div class="modal fade" id="newGame" tabindex="-1" role="dialog" aria-labelledby="newGameLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="newGameLabel">Change your PW</h4>
+                </div>
+                <div class="modal-body">
+                  <form class='userEvents' id='save-board-first-time'>
+                      <div class="form-group">
+                          <input type="text" name="board[title]" accept="" placeholder="Enter title">
+                      </div>
+                      <button type="submit" class="btn btn-default">The board!</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <div class="row">
+                    <div class="col-xs-8">
+                      <p id="newGameMessage"> </p>
+                    </div>
+                    <div class="col-xs-4">
+                      <button type="button" class="btn btn-default close-form" data-dismiss="modal">Close Form</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>

@@ -1,23 +1,27 @@
 'use strict'
-const $message = $('#message')
+// const $list = $('.main')
 const listBoardsTemplate = require('../templates/board-list.handlebars')
-
 
 const board = require('../boardStore')
 
 const getGamesSuccesss = function (data) {
+
+
   board.boardsList = data.boards
   const boards = board.boardsList
   console.log(boards)
   const boardsHTML = listBoardsTemplate({boards})
   console.log(boardsHTML)
-  $message.append(boardsHTML)
+  $('#listBoards').append(boardsHTML)
+
 }
 
 const getBoardSuccsess = function (data) {
   board.boardStore = data
   board.cellsStore = JSON.parse(board.boardStore.board.cells)
   console.log("The board you clicked on has ID: " + board.boardStore.board.id)
+  $('.board-list').remove()
+  // const boardButtons = addBoardButtons()
 }
 
 const failure = function (response) {

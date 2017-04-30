@@ -2,10 +2,10 @@
 // // const $signInUI = $('#signInMessage')
 const $message = $('#message')
 const store = require('../store')
-const showBoardButtons = require('../templates/create-save-buttons.handlebars')
+const showSaveButtons = require('../templates/create-save-buttons.handlebars')
 const showFooter = require('../templates/add-footer.handlebars')
 const showSignInUp = require('../templates/create-sign-sign-up.handlebars')
-const addBoardButtons = require('../templates/add-board-buttons.handlebars')
+const addBoardList = require('../templates/add-board-list.handlebars')
 
 // const clearSignInAside= function () {
 //   const oElem = document.getElementById('signInUp')
@@ -19,11 +19,11 @@ const onSignUpSuccess = function () {
 const onSignInSuccess = function (data) {
   store.store = data.user
   $message.text('You have signed-click the board to get started!')
-  const showBoardHTML = showBoardButtons()
+  const showSaveHTML = showSaveButtons()
   const footerHTML = showFooter()
-  const boardHTML = addBoardButtons()
-  $('.aside-1').append(showBoardHTML)
-  $('.wrapper').append(boardHTML)
+  const boardListHTML = addBoardList()
+  $('.aside-1').append(showSaveHTML)
+  $('.wrapper').append(boardListHTML)
   $('.wrapper').append(footerHTML)
   $('.aside-2').remove()
 
