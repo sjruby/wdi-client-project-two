@@ -11,19 +11,24 @@ const userEvents = require('./userEvents/userEvents')
 const boardActions = require('./boardActions')
 
 $(() => {
-  $('#sign-up').on('submit', userEvents.onSignUp)
-  $('#sign-in').on('submit', userEvents.onSignIn)
+  // $('#sign-up').on('submit', userEvents.onSignUp)
+  // $('#sign-in').on('submit', userEvents.onSignIn)
   // $('#change-pw').on('submit', userEvents.onChangePW)
   // $('#sign-out').on('submit', userEvents.onSignOut)
   // $('#list-boards').on('submit', boardActions.onListBoards)
-  $('.randomize_board').on('click', boardActions.onRandomizeBoard)
-  $('.clear_board').on('click', boardActions.onClearBoard)
-  $('.animate_board').on('click', boardActions.onAnimateBoard)
-  $('.stop_animation').on('click', boardActions.onStopBoard)
-  $('.delete-board').on('click', boardActions.onDeleteBoard)
+  // $('.randomize_board').on('click', boardActions.onRandomizeBoard)
+  // $('.clear_board').on('click', boardActions.onClearBoard)
+  // $('.animate_board').on('click', boardActions.onAnimateBoard)
+  // $('.stop_animation').on('click', boardActions.onStopBoard)
+  // $('.delete-board').on('click', boardActions.onDeleteBoard)
 })
 
-
+// $(document).on('click','.list_of_boards',boardActions.onGetBoard)
+// $(document).on('submit','#list-boards',boardActions.onListBoards)
+// $(document).on('submit','#save-board',boardActions.onSaveBoard)
+// $(document).on('submit','#save-board-first-time',boardActions.onSaveNewBoard)
+$(document).on('submit','#sign-up',userEvents.onSignUp)
+$(document).on('submit','#sign-in',userEvents.onSignIn)
 //Event handlers for HANDLEBARS stuff, this is active even if
 // the stuff is renderd after DOM load, b/c it's on the document level...
 $(document).on('click','.list_of_boards',boardActions.onGetBoard)
@@ -32,6 +37,12 @@ $(document).on('submit','#save-board',boardActions.onSaveBoard)
 $(document).on('submit','#save-board-first-time',boardActions.onSaveNewBoard)
 $(document).on('submit','#change-pw',userEvents.onChangePW)
 $(document).on('submit','#sign-out',userEvents.onSignOut)
+
+$(document).on('click','.randomize_board',boardActions.onRandomizeBoard)
+$(document).on('click','.animate_board',boardActions.onAnimateBoard)
+$(document).on('click','.stop_animation',boardActions.onStopBoard)
+$(document).on('click','.clear_board',boardActions.onClearBoard)
+$(document).on('click','.delete-board',boardActions.onDeleteBoard)
 
 
 
