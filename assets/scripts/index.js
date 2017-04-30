@@ -13,22 +13,26 @@ const boardActions = require('./boardActions')
 $(() => {
   $('#sign-up').on('submit', userEvents.onSignUp)
   $('#sign-in').on('submit', userEvents.onSignIn)
-  $('#change-pw').on('submit', userEvents.onChangePW)
-  $('#sign-out').on('submit', userEvents.onSignOut)
-  $('#list-boards').on('submit', boardActions.onListBoards)
+  // $('#change-pw').on('submit', userEvents.onChangePW)
+  // $('#sign-out').on('submit', userEvents.onSignOut)
+  // $('#list-boards').on('submit', boardActions.onListBoards)
   $('.randomize_board').on('click', boardActions.onRandomizeBoard)
   $('.clear_board').on('click', boardActions.onClearBoard)
   $('.animate_board').on('click', boardActions.onAnimateBoard)
   $('.stop_animation').on('click', boardActions.onStopBoard)
   $('.delete-board').on('click', boardActions.onDeleteBoard)
-  $('#save-board').on('submit', boardActions.onSaveBoard)
-  $('#save-board-first-time').on('submit', boardActions.onSaveNewBoard)
 })
 
 
 //Event handlers for HANDLEBARS stuff, this is active even if
 // the stuff is renderd after DOM load, b/c it's on the document level...
 $(document).on('click','.list_of_boards',boardActions.onGetBoard)
+$(document).on('submit','#list-boards',boardActions.onListBoards)
+$(document).on('submit','#save-board',boardActions.onSaveBoard)
+$(document).on('submit','#save-board-first-time',boardActions.onSaveNewBoard)
+$(document).on('submit','#change-pw',userEvents.onChangePW)
+$(document).on('submit','#sign-out',userEvents.onSignOut)
+
 
 
 
