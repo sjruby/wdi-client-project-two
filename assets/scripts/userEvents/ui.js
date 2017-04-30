@@ -2,7 +2,6 @@
 // // const $signInUI = $('#signInMessage')
 const $message = $('#message')
 const store = require('../store')
-const showSaveButtons = require('../templates/create-save-buttons.handlebars')
 const showFooter = require('../templates/add-footer.handlebars')
 const showSignInUp = require('../templates/create-sign-sign-up.handlebars')
 const addBoardList = require('../templates/add-board-list.handlebars')
@@ -19,14 +18,12 @@ const onSignUpSuccess = function () {
 const onSignInSuccess = function (data) {
   store.store = data.user
   $message.text('You have signed-click the board to get started!')
-  const showSaveHTML = showSaveButtons()
   const footerHTML = showFooter()
   const boardListHTML = addBoardList()
-  $('.aside-1').append(showSaveHTML)
   $('.wrapper').append(boardListHTML)
   $('.wrapper').append(footerHTML)
   $('.aside-2').remove()
-
+  
 }
 
 const onChangePWSuccess = () => {

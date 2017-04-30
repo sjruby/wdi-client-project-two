@@ -24,6 +24,9 @@ const getBoardSuccsess = function (data) {
   // const boardButtons = addBoardButtons()
 }
 
+const newGameSucess = function() {
+      $('#newGame').modal('hide')
+}
 const failure = function (response) {
 
   $message.text("That bombed....")
@@ -31,5 +34,6 @@ const failure = function (response) {
 
 module.exports = {
   getGamesSuccesss,
-  getBoardSuccsess
+  getBoardSuccsess,
+  newGameSucess
 }

@@ -50,11 +50,17 @@ const onClearBoard = function () {
   oElem.innerHTML = ''
 }
 
+const listBoards = function() {
+  console.log('listboards runs?')
+  api.getBoards()
+    .done( ui.getGamesSuccesss)
+    .catch(ui.failure)
+}
+
 const onListBoards = function (event) {
   event.preventDefault()
-  api.getBoards()
-    .done(onClearBoard(), ui.getGamesSuccesss)
-    .catch(ui.failure)
+  onClearBoard()
+  listBoards()
 }
 
 const onSaveBoard = function () {
@@ -73,21 +79,33 @@ const onSaveNewBoard = function () {
   event.preventDefault()
   const titlePrep = getFormFields(this)
   const title = titlePrep.board.title
+  createBoardArrays.newBoard()
   const data = {}
   data.cells = JSON.stringify(board.cellsStore)
   data.title = title
 
   console.log('cute-trying to make a board!' + title)
   api.saveNewBoard(data)
-    // .then(ui.getGamesSuccesss)
+    .then(ui.newGameSucess, onClearBoard(), renderBoards.renderBoard() )
     .catch(ui.failure)
 }
 
 const onDeleteBoard = function () {
   console.log('yo Im here')
   api.deleteBoard()
-    // .then(ui.getGamesSuccesss)
+    .done(onClearBoard,listBoards)
     .catch(ui.failure)
+}
+
+const onBoardClick = function(li) {
+  const clickedClass = $(this).attr("class").split(" ")
+  // console.log(clickedClass.split(" "))
+  console.log(clickedClass)
+  // console.log(clickedClass.indexOf('x'))
+  // console.log(clickedClass.indexOf('y'))
+  $(this).toggleClass('value-1')
+  $(this).toggleClass('value-2')
+  // board.cellsStore[x][y]
 }
 module.exports = {
   onRandomizeBoard,
@@ -98,5 +116,7 @@ module.exports = {
   onSaveBoard,
   onGetBoard,
   onSaveNewBoard,
-  onDeleteBoard
+  onDeleteBoard,
+  listBoards,
+  onBoardClick
 }

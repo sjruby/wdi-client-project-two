@@ -15,7 +15,24 @@ const Board = function Board (x, y) {
   }
   return board
 }
+// method to initalize the board with random colors
+const newCellValues = function (board) {
+  const result = board
+  for (let x = 0; x < board.length; x++) {
+    for (let y = 0; y < board[x].length; y++) {
+      board[x][y] = new Cell(x, y)
+      board[x][y].intialValue = 1
+    }
+  }
+  return result
+}
 
+const newBoard = function () {
+  const blankCanvas = new Board(28, 28)
+  board.cellsStore = newCellValues(blankCanvas)
+  console.log(board.cellsStore)
+  // return board.boardStore
+}
 // method to initalize the board with random colors
 const randomizeCellValues = function (board) {
   const result = board
@@ -28,7 +45,7 @@ const randomizeCellValues = function (board) {
 }
 // this is where the board size is arbitraily set to 5x5
 const randomizeBoard = function () {
-  const blankCanvas = new Board(23, 23)
+  const blankCanvas = new Board(28, 28)
   board.cellsStore = randomizeCellValues(blankCanvas)
   console.log(board.cellsStore)
   // return board.boardStore
@@ -36,7 +53,7 @@ const randomizeBoard = function () {
 
 const updateCellValues = function (twoDimArray) {
 // HUGE design flaw here, I don't know who "variablize" the 23x23
-  const board = Board(23, 23)
+  const board = Board(28, 28)
   for (let x = 0; x < twoDimArray.length; x++) {
     for (let y = 0; y < twoDimArray[x].length; y++) {
       board[x][y] = twoDimArray[x][y]
@@ -48,5 +65,6 @@ const updateCellValues = function (twoDimArray) {
 
 module.exports = {
   randomizeBoard,
-  updateCellValues
+  updateCellValues,
+  newBoard
 }

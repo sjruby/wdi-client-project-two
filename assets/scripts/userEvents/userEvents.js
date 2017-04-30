@@ -1,5 +1,6 @@
 const api = require('./api')
 const ui = require('./ui')
+const gameEvents = require('../boardActions')
 const getFormFields = require('../../../lib/get-form-fields')
 // const showStuff = require('./showStuff')
 // const hideStuff = require('./hideStuff')
@@ -20,7 +21,7 @@ const onSignIn = function (event) {
   const data = getFormFields(this)
   // console.log(data)
   api.signIn(data)
-    .then(ui.onSignInSuccess)
+    .done(ui.onSignInSuccess, gameEvents.listBoards())
     .catch(ui.onError)
 }
 

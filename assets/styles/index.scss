@@ -1,26 +1,7 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-.flex-container {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: flex;
-  width: 280px;
-  flex-flow: row wrap;
-}
 
-.flex-item {
-  // background: tomato;
-  width: 10px;
-  height: 10px;
-  border: 1px solid black;
-  color: white;
-  font-weight: bold;
-  font-size: 3em;
-  text-align: center;
-
-}
 
 .value-1 {
   background: tomato
@@ -68,7 +49,26 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .aside-2 {
   background: hotpink;
 }
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  width: 560px;
+  
+  flex-flow: row wrap;
+}
 
+.flex-item {
+  // background: tomato;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
 @media all and (min-width: 600px) {
   .aside { flex: 1 auto; }
 }

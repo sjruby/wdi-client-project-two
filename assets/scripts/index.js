@@ -43,6 +43,7 @@ $(document).on('click','.animate_board',boardActions.onAnimateBoard)
 $(document).on('click','.stop_animation',boardActions.onStopBoard)
 $(document).on('click','.clear_board',boardActions.onClearBoard)
 $(document).on('click','.delete-board',boardActions.onDeleteBoard)
+$(document).on('click','.board-cell ',boardActions.onBoardClick)
 
 
 
