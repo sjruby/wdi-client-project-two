@@ -14,18 +14,17 @@ const renderBoard = function () {
   $('#listBoards').append(boardHTML)
 }
 
-const renderNewBoard = function (title) {
-  console.log('NEW board render worked')
-  const titlePrep = title
-  console.log(titlePrep)
-  const titleHTML = addBoardTitle({title})
-  $('#listBoards').append(titleHTML)
-  const cells = board.cellsStore
-  const boardHTML = createBoardTemplate({cells})
-  $('#listBoards').append(boardHTML)
-}
+// const renderNewBoard = function (title) {
+//   console.log('NEW board render worked')
+//   const titlePrep = title
+//   console.log(titlePrep)
+//   const titleHTML = addBoardTitle({title})
+//   $('#listBoards').append(titleHTML)
+//   const cells = board.cellsStore
+//   const boardHTML = createBoardTemplate({cells})
+//   $('#listBoards').append(boardHTML)
+// }
 
 module.exports = {
-  renderBoard,
-  renderNewBoard
+  renderBoard
 }

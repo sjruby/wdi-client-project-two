@@ -58,7 +58,6 @@ const onClearBoard = function () {
 }
 
 const listBoards = function() {
-  console.log('listboards runs?')
   api.getBoards()
     .done( ui.getGamesSuccesss)
     .catch(ui.failure)
@@ -72,35 +71,36 @@ const onListBoards = function (event) {
 
 const onSaveBoard = function () {
   event.preventDefault()
-  const title = board.boardStore.title
+  $('.save-message').remove()
   const data = {}
   data.cells = JSON.stringify(board.cellsStore)
-  data.title = title
   console.log(data)
   api.saveBoard(data)
-    // .then(ui.getGamesSuccesss)
+    .then(ui.saveGameSuccess)
     .catch(ui.failure)
 }
 
 const onSaveNewBoard = function () {
   event.preventDefault()
+    clearCurrentBoard()
   const titlePrep = getFormFields(this)
   const title = titlePrep.board.title
   createBoardArrays.newBoard()
   const data = {}
   data.cells = JSON.stringify(board.cellsStore)
   data.title = title
+  // board.boardStore.board = data
   // createBoardArrays.assignBoardStore(data)
-  // console.log("board store is:" + board.boardStore)
+  console.log(board.boardStore)
   api.saveNewBoard(data)
-    .done(ui.newGameSucess, renderBoards.renderNewBoard(title) )
+    .done(ui.newGameSucess, renderBoards.renderBoard )
     .catch(ui.failure)
 }
 
 const onDeleteBoard = function () {
   console.log('yo Im here')
   api.deleteBoard()
-    .done(onClearBoard,listBoards)
+    .done(clearCurrentBoard,listBoards)
     .catch(ui.failure)
 }
 
