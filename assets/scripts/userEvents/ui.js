@@ -11,19 +11,20 @@ const addBoardList = require('../templates/add-board-list.handlebars')
 //   console.log(oElem)
 //   oElem.remove() = ''
 // }
-const onSignUpSuccess = function () {
-  $message.text('It worked! Go sign in and have some fun!')
+const onSignUpSuccess = function (data) {
+    $message.text('You have signed UP, no login in below to get started')
+    $('.sign-up-div').remove()
 }
 
 const onSignInSuccess = function (data) {
   store.store = data.user
-  $message.text('You have signed-click the board to get started!')
+  console.log(store.store)
   const footerHTML = showFooter()
   const boardListHTML = addBoardList()
   $('.wrapper').append(boardListHTML)
   $('.wrapper').append(footerHTML)
   $('.aside-2').remove()
-  
+
 }
 
 const onChangePWSuccess = () => {

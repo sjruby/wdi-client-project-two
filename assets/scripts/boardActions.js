@@ -5,6 +5,7 @@ const ui = require('./board_scripts/board_ui.js')
 const board = require('./boardStore')
 const getFormFields = require('../../lib/get-form-fields')
 const gameRules = require('./board_scripts/update_rules.js')
+
 let nIntervId
 
 const clearCurrentBoard = function () {
@@ -23,9 +24,17 @@ const onRandomizeBoard = function () {
   renderBoards.renderBoard()
   // NEED TO RENDER THIS BOARD
 }
-
-const animateBoard = function () {
-  createBoardArrays.updateCellValues(board.cellsStore)
+const gameOfLife = function() {
+    createBoardArrays.updateCellValues(board.cellsStore, gameRules.conwaysRules)
+    $('#game-board').remove()
+    $('#board-title').remove()
+    renderBoards.renderBoard()
+}
+const onConwayBoard = function() {
+  nIntervId = setInterval(gameOfLife, 1000)
+}
+const blinkBoard = function () {
+  createBoardArrays.updateCellValues(board.cellsStore, gameRules.flipValue )
   $('#game-board').remove()
   $('#board-title').remove()
   renderBoards.renderBoard()
@@ -41,8 +50,8 @@ const onGetBoard = function (li) {
     // .catch(ui.failure)
 }
 
-const onAnimateBoard = function () {
-  nIntervId = setInterval(animateBoard, 1000)
+const onBlinkBoard = function () {
+  nIntervId = setInterval(blinkBoard, 1000)
 }
 
 const onStopBoard = function () {
@@ -123,17 +132,17 @@ const onBoardClick = function(li) {
   }
   board.cellsStore[x][y].intialValue = gameRules.flipValue(board.cellsStore[x][y].intialValue)
   // console.log(clickedClass.split(" "))
-  console.log(clickedClass[3])
-  console.log(x)
-  console.log(clickedClass[2])
-  console.log(y);
+  // conwaysRules
+  const test = gameRules.conwaysRules(board.cellsStore[x][y])
+  // const test = board.cellsStore[x][y]
+  console.log(test)
   $(this).toggleClass('value-1')
   $(this).toggleClass('value-2')
 }
 module.exports = {
   onRandomizeBoard,
   onClearBoard,
-  onAnimateBoard,
+  onBlinkBoard,
   onStopBoard,
   onListBoards,
   onSaveBoard,
@@ -141,5 +150,6 @@ module.exports = {
   onSaveNewBoard,
   onDeleteBoard,
   listBoards,
-  onBoardClick
+  onBoardClick,
+  onConwayBoard
 }

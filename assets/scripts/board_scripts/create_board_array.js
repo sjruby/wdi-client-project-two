@@ -51,15 +51,17 @@ const randomizeBoard = function () {
   // return board.boardStore
 }
 
-const updateCellValues = function (twoDimArray) {
+const updateCellValues = function (twoDimArray, gameLogic) {
 // HUGE design flaw here, I don't know who "variablize" the 23x23
   const board = Board(28, 28)
   for (let x = 0; x < twoDimArray.length; x++) {
     for (let y = 0; y < twoDimArray[x].length; y++) {
       board[x][y] = twoDimArray[x][y]
-      board[x][y].intialValue = gameRules.flipValue(twoDimArray[x][y].intialValue)
+      // board[x][y].intialValue = gameLogic(twoDimArray[x][y].intialValue)
+      board[x][y].intialValue = gameLogic(twoDimArray[x][y])
     }
   }
+  console.log(board)
   board.boardStore = board
 }
 

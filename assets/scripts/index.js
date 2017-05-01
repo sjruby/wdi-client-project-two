@@ -39,12 +39,13 @@ $(document).on('submit','#change-pw',userEvents.onChangePW)
 $(document).on('submit','#sign-out',userEvents.onSignOut)
 
 $(document).on('click','.randomize_board',boardActions.onRandomizeBoard)
-$(document).on('click','.animate_board',boardActions.onAnimateBoard)
+$(document).on('click','.animate_board',boardActions.onBlinkBoard)
 $(document).on('click','.stop_animation',boardActions.onStopBoard)
 $(document).on('click','.clear_board',boardActions.onClearBoard)
 $(document).on('click','.delete-board',boardActions.onDeleteBoard)
 $(document).on('click','.board-cell ',boardActions.onBoardClick)
 
+$(document).on('click','.conway_board',boardActions.onConwayBoard)
 
 
 

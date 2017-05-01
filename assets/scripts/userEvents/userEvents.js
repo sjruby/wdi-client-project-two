@@ -11,7 +11,7 @@ const onSignUp = function (event) {
   const data = getFormFields(this)
   // console.log(data)
   api.signUp(data)
-    .then(ui.onSignUpSuccess)
+    .then(ui.onSignUpSuccess, gameEvents.listBoards)
     .catch(ui.onSignUpError)
 }
 
