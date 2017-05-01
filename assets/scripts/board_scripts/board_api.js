@@ -1,16 +1,16 @@
 'use strict'
 const config = require('../config.js')
 const board = require('../boardStore')
-
+const store = require('../store.js')
 
 
 const getBoards = function () {
   return $.ajax({
     method: 'GET',
     url: config.apiOrigins.production + '/boards',
-    // headers: {
-    //   Authorization: 'Token token=' + store.store.token
-    // }
+    headers: {
+      Authorization: 'Token token=' + store.store.token
+    }
   })
 }
 
@@ -18,9 +18,9 @@ const getBoard = function (id) {
   return $.ajax({
     method: 'GET',
     url: config.apiOrigins.production + '/boards/' + id,
-    // headers: {
-    //   Authorization: 'Token token=' + store.store.token
-    // }
+    headers: {
+      Authorization: 'Token token=' + store.store.token
+    }
   })
 }
 
@@ -30,6 +30,9 @@ const saveBoard = function (data) {
   return $.ajax({
     method: 'PATCH',
     url: config.apiOrigins.production + '/boards/' + boardStoreID,
+    headers: {
+      Authorization: 'Token token=' + store.store.token
+    },
     data: data
   })
 }
@@ -38,6 +41,9 @@ const saveNewBoard = function (data) {
   return $.ajax({
     method: 'POST',
     url: config.apiOrigins.production + '/boards',
+    headers: {
+      Authorization: 'Token token=' + store.store.token
+    },
     data: data
   })
 }
@@ -48,6 +54,9 @@ const deleteBoard = function (data) {
   return $.ajax({
     method: 'DELETE',
     url: config.apiOrigins.production + '/boards/' + boardStoreID,
+    headers: {
+      Authorization: 'Token token=' + store.store.token
+    }
   })
 }
 

@@ -21,7 +21,7 @@ const onSignIn = function (event) {
   const data = getFormFields(this)
   // console.log(data)
   api.signIn(data)
-    .done(ui.onSignInSuccess, gameEvents.listBoards())
+    .done(ui.onSignInSuccess, gameEvents.listBoards)
     .catch(ui.onError)
 }
 
