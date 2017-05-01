@@ -60,11 +60,20 @@ const updateCellValues = function (twoDimArray) {
       board[x][y].intialValue = gameRules.flipValue(twoDimArray[x][y].intialValue)
     }
   }
-  console.log(board)
+  board.boardStore = board
+}
+
+const assignBoardStore = function(data) {
+    let board = {}
+    board.title = data.title
+    board.cells = data.cells
+    board.boardStore = board
+    console.log(board.boardStore)
 }
 
 module.exports = {
   randomizeBoard,
   updateCellValues,
-  newBoard
+  newBoard,
+  assignBoardStore
 }

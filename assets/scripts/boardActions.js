@@ -4,12 +4,17 @@ const api = require('./board_scripts/board_api.js')
 const ui = require('./board_scripts/board_ui.js')
 const board = require('./boardStore')
 const getFormFields = require('../../lib/get-form-fields')
+const gameRules = require('./board_scripts/update_rules.js')
 let nIntervId
 
 const clearCurrentBoard = function () {
-  const oElem = document.getElementById('game-board')
-  console.log(oElem)
-  oElem.innerHTML = ''
+  onStopBoard()
+  $('#game-board').remove()
+  $('#board-title').remove()
+  // const board = document.getElementById('game-board')
+  // board.innerHTML = ''
+  // const title = document.getElementById('board-title')
+  // title.innerHTML = ''
 }
 
 const onRandomizeBoard = function () {
@@ -21,7 +26,8 @@ const onRandomizeBoard = function () {
 
 const animateBoard = function () {
   createBoardArrays.updateCellValues(board.cellsStore)
-  clearCurrentBoard()
+  $('#game-board').remove()
+  $('#board-title').remove()
   renderBoards.renderBoard()
   // console.log('HELLO')
 }
@@ -45,9 +51,10 @@ const onStopBoard = function () {
 
 const onClearBoard = function () {
   onStopBoard()
-  const oElem = document.getElementById('game-board')
-  console.log(oElem)
-  oElem.innerHTML = ''
+  const board = document.getElementById('game-board')
+  board.innerHTML = ''
+  const title = document.getElementById('board-title')
+  title.innerHTML = ''
 }
 
 const listBoards = function() {
@@ -59,7 +66,7 @@ const listBoards = function() {
 
 const onListBoards = function (event) {
   event.preventDefault()
-  onClearBoard()
+  clearCurrentBoard()
   listBoards()
 }
 
@@ -83,10 +90,10 @@ const onSaveNewBoard = function () {
   const data = {}
   data.cells = JSON.stringify(board.cellsStore)
   data.title = title
-
-  console.log('cute-trying to make a board!' + title)
+  // createBoardArrays.assignBoardStore(data)
+  // console.log("board store is:" + board.boardStore)
   api.saveNewBoard(data)
-    .then(ui.newGameSucess, onClearBoard(), renderBoards.renderBoard() )
+    .done(ui.newGameSucess, renderBoards.renderNewBoard(title) )
     .catch(ui.failure)
 }
 
@@ -99,13 +106,29 @@ const onDeleteBoard = function () {
 
 const onBoardClick = function(li) {
   const clickedClass = $(this).attr("class").split(" ")
+
+  const xPrep =clickedClass[3].split('')
+  let x
+  if (xPrep.length === 4) {
+     x = (xPrep[2] + xPrep[3]) * 1
+  } else {
+     x = (xPrep[2]) * 1
+  }
+  const yPrep =clickedClass[2].split('')
+  let y
+  if (yPrep.length === 4) {
+     y = (yPrep[2] + yPrep[3]) * 1
+  } else {
+     y = (yPrep[2]) * 1
+  }
+  board.cellsStore[x][y].intialValue = gameRules.flipValue(board.cellsStore[x][y].intialValue)
   // console.log(clickedClass.split(" "))
-  console.log(clickedClass)
-  // console.log(clickedClass.indexOf('x'))
-  // console.log(clickedClass.indexOf('y'))
+  console.log(clickedClass[3])
+  console.log(x)
+  console.log(clickedClass[2])
+  console.log(y);
   $(this).toggleClass('value-1')
   $(this).toggleClass('value-2')
-  // board.cellsStore[x][y]
 }
 module.exports = {
   onRandomizeBoard,

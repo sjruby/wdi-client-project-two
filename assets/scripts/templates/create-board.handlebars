@@ -1,9 +1,11 @@
 <!-- {{#each cells as |cell|}} -->
+<ul class="flex-container game-board" id="game-board">
   {{#each cell}}
 <li class="flex-item board-cell y:{{this.yCord}} x:{{this.xCord}} value-{{this.intialValue}}"></li>
   {{/each}}
 <!-- {{/each}} -->
 
+</ul>
     <button id="button" type="submit" class="randomize_board btn btn-default">Randomize the Board</button>
     <button id="button" type="submit" class="animate_board btn btn-default">Animate this Board</button>
     <button id="button" type="submit" class="stop_animation btn btn-default">Stop Animation</button>

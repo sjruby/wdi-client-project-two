@@ -24,9 +24,11 @@ const getBoardSuccsess = function (data) {
   // const boardButtons = addBoardButtons()
 }
 
-const newGameSucess = function() {
+const newGameSucess = function(data) {
+      $('.board-list').remove()
       $('#newGame').modal('hide')
 }
+
 const failure = function (response) {
 
   $message.text("That bombed....")
