@@ -40,16 +40,14 @@ const blinkBoard = function () {
   $('#game-board').remove()
   $('#board-title').remove()
   renderBoards.renderBoard()
-  // console.log('HELLO')
 }
 
 
 const onGetBoard = function (li) {
   const boardID = this.id
-  console.log('the board you clicked has ID: ' + boardID )
   api.getBoard(this.id)
     .done(ui.getBoardSuccsess, renderBoards.renderBoard )
-    // .catch(ui.failure)
+    .catch(ui.failure)
 }
 
 const onBlinkBoard = function () {
@@ -88,7 +86,6 @@ const onSaveBoard = function () {
   $('.save-message').remove()
   const data = {}
   data.cells = JSON.stringify(board.cellsStore)
-  console.log(data)
   api.saveBoard(data)
     .then(ui.saveGameSuccess)
     .catch(ui.failure)
@@ -103,16 +100,12 @@ const onSaveNewBoard = function () {
   const data = {}
   data.cells = JSON.stringify(board.cellsStore)
   data.title = title
-  // board.boardStore.board = data
-  // createBoardArrays.assignBoardStore(data)
-  console.log(board.boardStore)
   api.saveNewBoard(data)
     .done(ui.newGameSucess, renderBoards.renderBoard )
     .catch(ui.failure)
 }
 
 const onDeleteBoard = function () {
-  console.log('yo Im here')
   api.deleteBoard()
     .done(clearCurrentBoard,listBoards)
     .catch(ui.failure)
@@ -135,13 +128,9 @@ const onBoardClick = function(li) {
   } else {
      y = (yPrep[2]) * 1
   }
+// this flips the value in teh cell store array
   board.cellsStore[x][y].intialValue = gameRules.flipValue(board.cellsStore[x][y])
-  console.log(board.cellsStore[x][y].intialValue)
-  // console.log(clickedClass.split(" "))
-  // conwaysRules
-  // const test = gameRules.conwaysRules(board.cellsStore[x][y])
-  // const test = board.cellsStore[x][y]
-  // console.log(test)
+// this toggles that class to change the color
   $(this).toggleClass('value-1')
   $(this).toggleClass('value-2')
 }

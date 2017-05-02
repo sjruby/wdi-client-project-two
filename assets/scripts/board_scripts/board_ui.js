@@ -12,11 +12,9 @@ const getGamesSuccesss = function (data) {
   board.boardsList = data.boards
   const boards = board.boardsList
   let boardsHTML
-  console.log(boards)
   if (boards.length === 0){
      boardsHTML = noBoardsTempleate()
   } else {  boardsHTML = listBoardsTemplate({boards})}
-  // console.log(boardsHTML)
   $('#listBoards').append(boardsHTML)
 
 }
@@ -28,7 +26,6 @@ const getGamesSuccesss = function (data) {
 const getBoardSuccsess = function (data) {
   board.boardStore = data
   board.cellsStore = JSON.parse(board.boardStore.board.cells)
-  console.log("The board you clicked on has ID: " + board.boardStore.board.id)
   $('.board-list').remove()
   // const boardButtons = addBoardButtons()
 }
@@ -48,7 +45,6 @@ const saveGameSuccess = function(){
     const title = titlePrep.board.title
     const saveMessageHTML = saveMessage({title})
     $('.board-title').append(saveMessageHTML)
-    console.log(saveMessageHTML)
 }
 
 module.exports = {

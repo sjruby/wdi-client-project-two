@@ -30,8 +30,6 @@ const newCellValues = function (board) {
 const newBoard = function () {
   const blankCanvas = new Board(28, 28)
   board.cellsStore = newCellValues(blankCanvas)
-  console.log(board.cellsStore)
-  // return board.boardStore
 }
 // method to initalize the board with random colors
 const randomizeCellValues = function (board) {
@@ -47,7 +45,6 @@ const randomizeCellValues = function (board) {
 const randomizeBoard = function () {
   const blankCanvas = new Board(28, 28)
   board.cellsStore = randomizeCellValues(blankCanvas)
-  console.log(board.cellsStore)
   // return board.boardStore
 }
 
@@ -57,12 +54,9 @@ const updateCellValues = function (twoDimArray, gameLogic) {
   for (let x = 0; x < twoDimArray.length; x++) {
     for (let y = 0; y < twoDimArray[x].length; y++) {
       board[x][y] = twoDimArray[x][y]
-      // board[x][y].intialValue = gameLogic(twoDimArray[x][y].intialValue)
-      // console.log(twoDimArray[x][y])
       board[x][y].intialValue = gameLogic(twoDimArray[x][y])
     }
   }
-  console.log(board)
   board.cellsStore = board
 }
 
@@ -71,7 +65,6 @@ const assignBoardStore = function(data) {
     board.title = data.title
     board.cells = data.cells
     board.boardStore = board
-    console.log(board.boardStore)
 }
 
 module.exports = {

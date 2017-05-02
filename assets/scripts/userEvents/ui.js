@@ -7,11 +7,7 @@ const showSignInUp = require('../templates/create-sign-sign-up.handlebars')
 const addBoardList = require('../templates/add-board-list.handlebars')
 const aboutShoop = require('../templates/about-shoop.handlebars')
 const shoopRules = require('../templates/shoop-rules.handlebars')
-// const clearSignInAside= function () {
-//   const oElem = document.getElementById('signInUp')
-//   console.log(oElem)
-//   oElem.remove() = ''
-// }
+
 const onSignUpSuccess = function (data) {
     $message.text('You have signed UP, no login in below to get started')
     $('.sign-up-div').remove()
@@ -19,7 +15,6 @@ const onSignUpSuccess = function (data) {
 
 const onSignInSuccess = function (data) {
   store.store = data.user
-  console.log(store.store)
   const footerHTML = showFooter()
   const boardListHTML = addBoardList()
   const shoopRulesHTML = shoopRules()

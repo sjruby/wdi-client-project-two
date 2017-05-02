@@ -9,7 +9,6 @@ const onSignUp = function (event) {
   event.preventDefault()
 
   const data = getFormFields(this)
-  // console.log(data)
   api.signUp(data)
     .then(ui.onSignUpSuccess, gameEvents.listBoards)
     .catch(ui.onSignUpError)
@@ -19,7 +18,6 @@ const onSignIn = function (event) {
   event.preventDefault()
 
   const data = getFormFields(this)
-  // console.log(data)
   api.signIn(data)
     .done(ui.onSignInSuccess, gameEvents.listBoards)
     .catch(ui.onError)
@@ -29,7 +27,6 @@ const onChangePW = function (event) {
   event.preventDefault()
 
   const data = getFormFields(this)
-  // console.log(data)
   api.changePassword(data)
     .then(ui.onChangePWSuccess)
     .catch(ui.onError)
@@ -37,8 +34,6 @@ const onChangePW = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-
-  console.log('you signed out')
   api.signOut()
     .done(ui.signOutSuccess)
     .catch(ui.onError)
