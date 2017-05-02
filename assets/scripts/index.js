@@ -34,7 +34,7 @@ $(document).on('submit','#sign-in',userEvents.onSignIn)
 $(document).on('click','.list_of_boards',boardActions.onGetBoard)
 $(document).on('submit','#list-boards',boardActions.onListBoards)
 $(document).on('click','.save-board',boardActions.onSaveBoard)
-$(document).on('submit','#save-board-first-time',boardActions.onSaveNewBoard)
+$(document).on('submit','#myForm',boardActions.onSaveNewBoard)
 $(document).on('submit','#change-pw',userEvents.onChangePW)
 $(document).on('submit','#sign-out',userEvents.onSignOut)
 
