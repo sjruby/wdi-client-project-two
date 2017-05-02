@@ -2,7 +2,7 @@
 
 ## WDI-Project-Two
 
-The inspiration for this project came during the code retreat.  While googling Conway's Game of life I saw some really cool animations. 
+The inspiration for this project came during the code retreat.  While googling Conway's Game of life I saw some really cool animations.
 
 I wanted to create an app that would let users create a board and animate it following rules similar to Conway's game of life.
 
@@ -23,12 +23,12 @@ Link to SHOOP API:
 https://github.com/sjruby/shoop-api
 
 ## Technologies used:
-  Ajax to interact with the bakend server
-  jQuery to manipulate the DOM
-  Javascript to animate the board, and process the requests from the server
-  HTML to structure the board
-  Bootstrap to simplify some of the formating/modals
-  Handlebars to add and remove HTML as needed
+  - Ajax to interact with the bakend server
+  - jQuery to manipulate the DOM
+  - Javascript to animate the board, and process the requests from the server
+  - HTML to structure the board
+  - Bootstrap to simplify some of the formating/modals
+  - Handlebars to add and remove HTML as needed
 
   ## User Stories
   1. As a pro-shooper, I want to be able to generate new Shoop boards
@@ -39,6 +39,10 @@ https://github.com/sjruby/shoop-api
   ## Final Wireframe
   The final wire frame is below:
   [Imgur](http://i.imgur.com/zrKS71u.jpg?2)
+
+  ## Final ERD
+  The final ERD is below:
+  [Imgur](http://i.imgur.com/iJJHGzt.jpg?1)
 
   ## Approach to Building the App
   Step 1 - set up the authentication using the heroku server.  I figured I could leverage a lot of code form the tic-tac-toe authentication logic.
@@ -63,10 +67,12 @@ https://github.com/sjruby/shoop-api
 
   HTML/CSS Layout, I messed around with flexbox and then droped trying to make the app adjust text/display for mobile devices.  I think CSS is still where I have the most trouble taking what is in my brain and translating it to concrete steps.
 
-  I hamfisted the ERD on this project.  The BOARDS table only has two columns, ID, title,  and CELLS.  The Cells column is basically a Javascript object/array which I hammered into the data base using the "searlize" function to the object into JSON.  It's gross.  A better design would have a table for Boards and a related table for Cells.  My defense is that I had planed to do a blog app.  That would have a very similar ERD with a table for BLOGS that had columns for ID, title, and content.  The content in the blog case is also a long gross string.  Basically I just made my front end more complicated, and avoided difficulty on the back end by using searlize.  Not the best choice but hey I'm learning.
+  I hamfisted the ERD on this project.  The BOARDS table only has two columns, ID, title,  and CELLS.  The Cells column is a Javascript object/array which I hammered into the data base using the "searlize" opting to turn the object into JSON.  Since JSON is a string it can be stored in one column in the database, even though object is a 28x28 array of objects.  It's gross.
+
+  A better design would have a table for Boards and a related table for Cells.  My lame defense is that I had planed to do a blog app.  That would have a very similar ERD with a table for BLOGS that had columns for ID, title, and content.  The content in the blog case is also a long gross string.  Basically I just made my front end more complicated, and avoided difficulty on the back end by using searlize.
 
   ## Next Steps for Shoop
 
-  I would like the user to be able to choose colors.
+  I would like the user to be able to choose colors and how they blink.
 
   I would like the user to be able to customize the animation rules based on a table the user updates on the front end page.
