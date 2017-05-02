@@ -1,17 +1,27 @@
 <!-- {{#each cells as |cell|}} -->
 <ul class="flex-container game-board" id="game-board">
-  {{#each cell}}
-<li class="flex-item board-cell y:{{this.yCord}} x:{{this.xCord}} value-{{this.intialValue}}"></li>
-  {{/each}}
-<!-- {{/each}} -->
+    {{#each cell}}
+        <li class="flex-item board-cell y:{{this.yCord}} x:{{this.xCord}} value-{{this.intialValue}}"></li>
+    {{/each}}
+    <!-- {{/each}} -->
 
 </ul>
-    <button id="button" type="submit" class="randomize_board btn btn-default">Randomize the Board</button>
-    <button id="button" type="submit" class="animate_board btn btn-default">Make the Board Blink</button>
-    <button id="button" type="submit" class="conway_board btn btn-default">Animate According to Conways Game of Life</button>
-    <button id="button" type="submit" class="stop_animation btn btn-default">Stop Animation</button>
-    <button type="button" type="submit" class="delete-board btn btn-default">Delete Board</button>
-    <button type="submit" class="save-board btn btn-default">Save this board!</button>
-    <form class='userEvents' id='list-boards'>
-        <button type="submit" class="btn btn-default">list boards</button>
-    </form>
+    <table class="table">
+        <tbody>
+            <tr>
+              <td> Board Managment Options </td>
+              <td>  <button type="button" type="submit" class="col-xs-4 delete-board btn btn-default btn-block">Delete Board</button> </td>
+              <td>   <button type="submit" class="col-xs-4 save-board btn btn-default btn-block">Save this board!</button></td>
+              <td>   <form class='userEvents' id='list-boards'>
+                    <button type="submit" class="btn btn-default col-xs-4 btn-block"> Return to Board List</button>
+                </form></td>
+            </tr>
+            <tr>
+            <td>  Animation options:  </td>
+            <td>     <button id="button" type="submit" class="animate_board btn btn-default btn-block">Make the Board Blink</button> </td>
+            <td>     <button id="button" type="submit" class="conway_board btn btn-default btn-block">Shoop It</button> </td>
+            <td>     <button id="button" type="submit" class="stop_animation btn btn-default btn-block">Stop Animation</button> </td>
+            </tr>
+        </tbody>
+    </table>
+    <button id="button" type="submit" class="randomize_board btn btn-primary btn-lg btn-block">Randomize the Board...its the most fun</button>

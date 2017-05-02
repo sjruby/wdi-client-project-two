@@ -1,6 +1,6 @@
 // const $signUpUI = $('#signUpMessage')
 // // const $signInUI = $('#signInMessage')
-const $message = $('#message')
+const $message = $('.message')
 const store = require('../store')
 const showFooter = require('../templates/add-footer.handlebars')
 const showSignInUp = require('../templates/create-sign-sign-up.handlebars')
@@ -46,13 +46,17 @@ const signOutSuccess = () => {
 }
 
 const onError = function (response) {
-  $message.text('Failure')
+  $message.text('That bombed...as a devolper I have determined it was user error :) ')
 }
 
+const onPWError = function() {
+  $('#changePWMessage').text('That bombed...as a devolper I have determined it was user error :) ')
+}
 module.exports = {
   onSignUpSuccess,
   onSignInSuccess,
   onChangePWSuccess,
   signOutSuccess,
-  onError
+  onError,
+  onPWError
 }

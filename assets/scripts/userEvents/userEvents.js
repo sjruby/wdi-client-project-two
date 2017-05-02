@@ -11,7 +11,7 @@ const onSignUp = function (event) {
   const data = getFormFields(this)
   api.signUp(data)
     .then(ui.onSignUpSuccess, gameEvents.listBoards)
-    .catch(ui.onSignUpError)
+    .catch(ui.onError)
 }
 
 const onSignIn = function (event) {
@@ -29,13 +29,13 @@ const onChangePW = function (event) {
   const data = getFormFields(this)
   api.changePassword(data)
     .then(ui.onChangePWSuccess)
-    .catch(ui.onError)
+    .catch(ui.onPWError)
 }
 
 const onSignOut = function (event) {
   event.preventDefault()
   api.signOut()
-    .done(ui.signOutSuccess)
+    .done(ui.signOutSuccess, gameEvents.clearCurrentBoard())
     .catch(ui.onError)
 }
 

@@ -12,6 +12,7 @@ const clearCurrentBoard = function () {
   onStopBoard()
   $('#game-board').remove()
   $('#board-title').remove()
+  $('.video').remove()
   // const board = document.getElementById('game-board')
   // board.innerHTML = ''
   // const title = document.getElementById('board-title')
@@ -31,6 +32,7 @@ const gameOfLife = function() {
     renderBoards.renderBoard()
 }
 const onConwayBoard = function() {
+  onStopBoard()
   const videoHTML = videoShooping()
   $('.aside-1').append(videoHTML)
   nIntervId = setInterval(gameOfLife, 1000)
@@ -51,6 +53,7 @@ const onGetBoard = function (li) {
 }
 
 const onBlinkBoard = function () {
+  onStopBoard()
   const videoHTML = videoShooping()
   $('.aside-1').append(videoHTML)
   nIntervId = setInterval(blinkBoard, 1000)
@@ -83,6 +86,7 @@ const onListBoards = function (event) {
 
 const onSaveBoard = function () {
   event.preventDefault()
+  onStopBoard()
   $('.save-message').remove()
   const data = {}
   data.cells = JSON.stringify(board.cellsStore)
@@ -146,5 +150,6 @@ module.exports = {
   onDeleteBoard,
   listBoards,
   onBoardClick,
-  onConwayBoard
+  onConwayBoard,
+  clearCurrentBoard
 }
