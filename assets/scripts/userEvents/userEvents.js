@@ -38,9 +38,16 @@ const onSignOut = function (event) {
     .done(ui.signOutSuccess)
     .catch(ui.onError)
 }
+
+const onCloseModal = function() {
+  $('#save-board-first-time')[0].reset()
+  $('#change-pw')[0].reset()
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePW,
-  onSignOut
+  onSignOut,
+  onCloseModal
 }

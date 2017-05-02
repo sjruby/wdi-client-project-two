@@ -46,6 +46,7 @@ $(document).on('click','.delete-board',boardActions.onDeleteBoard)
 $(document).on('click','.board-cell ',boardActions.onBoardClick)
 
 $(document).on('click','.conway_board',boardActions.onConwayBoard)
+$(document).on('click','.close-form',userEvents.onCloseModal)
 
 
 

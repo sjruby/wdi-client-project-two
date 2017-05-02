@@ -9,7 +9,7 @@ const aboutShoop = require('../templates/about-shoop.handlebars')
 const shoopRules = require('../templates/shoop-rules.handlebars')
 
 const onSignUpSuccess = function (data) {
-    $message.text('You have signed UP, no login in below to get started')
+    $message.text('You have signed up, now login in below to get started shooping!')
     $('.sign-up-div').remove()
 }
 
@@ -30,6 +30,7 @@ const onSignInSuccess = function (data) {
 const onChangePWSuccess = () => {
   $message.text('You succesfully changed your PW...now play!')
     $('#changePW').modal('hide')
+    $('#change-pw')[0].reset()
 }
 
 const signOutSuccess = () => {

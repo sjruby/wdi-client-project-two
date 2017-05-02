@@ -34,6 +34,7 @@ const newGameSucess = function(data) {
       $('.board-list').remove()
       board.boardStore = data
       $('#newGame').modal('hide')
+      $('#save-board-first-time')[0].reset()
 }
 
 const failure = function (response) {
