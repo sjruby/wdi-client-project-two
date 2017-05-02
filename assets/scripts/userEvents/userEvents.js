@@ -40,7 +40,7 @@ const onSignOut = function (event) {
 }
 
 const onCloseModal = function() {
-  $('#save-board-first-time')[0].reset()
+  $('#myForm')[0].reset()
   $('#change-pw')[0].reset()
 }
 
