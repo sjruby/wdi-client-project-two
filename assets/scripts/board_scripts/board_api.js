@@ -7,7 +7,7 @@ const store = require('../store.js')
 const getBoards = function () {
   return $.ajax({
     method: 'GET',
-    url: config.apiOrigins.production + '/boards',
+    url: config.apiOrigins.production + '/list-boards',
     headers: {
       Authorization: 'Token token=' + store.store.token
     }
