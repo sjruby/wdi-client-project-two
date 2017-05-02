@@ -5,7 +5,8 @@ const store = require('../store')
 const showFooter = require('../templates/add-footer.handlebars')
 const showSignInUp = require('../templates/create-sign-sign-up.handlebars')
 const addBoardList = require('../templates/add-board-list.handlebars')
-
+const aboutShoop = require('../templates/about-shoop.handlebars')
+const shoopRules = require('../templates/shoop-rules.handlebars')
 // const clearSignInAside= function () {
 //   const oElem = document.getElementById('signInUp')
 //   console.log(oElem)
@@ -21,9 +22,13 @@ const onSignInSuccess = function (data) {
   console.log(store.store)
   const footerHTML = showFooter()
   const boardListHTML = addBoardList()
+  const shoopRulesHTML = shoopRules()
   $('.wrapper').append(boardListHTML)
   $('.wrapper').append(footerHTML)
   $('.aside-2').remove()
+  $('.about-shoop').remove()
+  $('.message').empty()
+  $('.aside-1').append(shoopRulesHTML)
 
 }
 
@@ -39,6 +44,9 @@ const signOutSuccess = () => {
   $('.board-managment').remove()
   const signInHTML = showSignInUp()
   $('.wrapper').append(signInHTML)
+  const aboutShoopHTML = aboutShoop()
+  $('.shoop-rules').remove()
+  $('.aside-1').append(aboutShoopHTML)
 }
 
 const onError = function (response) {

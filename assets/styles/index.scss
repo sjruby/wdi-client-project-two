@@ -22,11 +22,20 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
   font-weight: bold;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 .wrapper > * {
-  padding: 10px;
   flex: 1 100%;
+  padding: 10px;
+}
+
+.about-shoop {
+  text-align: left;
+}
+
+.shoop-rules {
+  text-align: left;
 }
 
 .header {
@@ -49,15 +58,20 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .aside-2 {
   background: hotpink;
 }
+
 .flex-container {
   padding: 0;
   margin: 0;
   list-style: none;
   display: flex;
   width: 560px;
-  
+
   flex-flow: row wrap;
 }
+
+// .video {
+//   visibility: hidden;
+// }
 
 .flex-item {
   // background: tomato;
@@ -80,6 +94,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   .aside-2 { order: 3; }
   .footer  { order: 4; }
 }
+
 
 body {
   padding: 2em;

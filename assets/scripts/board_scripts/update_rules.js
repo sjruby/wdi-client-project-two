@@ -1,5 +1,5 @@
 const board = require('../boardStore')
-const boardSize = 5
+const boardSize = 27
 
 const flipValue = function (cell) {
   if (cell.intialValue === 1) {
@@ -87,13 +87,16 @@ const conwaysRules = function(cell) {
   const arrayForChecking = testArray.filter(isAlive)
 
 
-  if (cell.intialValue === 2 && arrayForChecking.length <= 1) {
+  if (arrayForChecking.length < 2) {
     return 1
-  } else if (cell.intialValue === 2 && arrayForChecking.length >= 4 ) {
+  }else if (arrayForChecking.length > 3 ) {
     return 1
-  } else if (cell.intialValue === 1 && arrayForChecking.length === 3) {
+  } else if (arrayForChecking.length === 3) {
     return 2
-  } else {return cell.intialValue}
+  }
+  else {return cell.intialValue}
+
+  // return testArray
 }
 module.exports = {
   flipValue,

@@ -5,7 +5,7 @@ const ui = require('./board_scripts/board_ui.js')
 const board = require('./boardStore')
 const getFormFields = require('../../lib/get-form-fields')
 const gameRules = require('./board_scripts/update_rules.js')
-
+const videoShooping = require('./templates/shoop-video.handlebars')
 let nIntervId
 
 const clearCurrentBoard = function () {
@@ -31,6 +31,8 @@ const gameOfLife = function() {
     renderBoards.renderBoard()
 }
 const onConwayBoard = function() {
+  const videoHTML = videoShooping()
+  $('.aside-1').append(videoHTML)
   nIntervId = setInterval(gameOfLife, 1000)
 }
 const blinkBoard = function () {
@@ -51,10 +53,13 @@ const onGetBoard = function (li) {
 }
 
 const onBlinkBoard = function () {
+  const videoHTML = videoShooping()
+  $('.aside-1').append(videoHTML)
   nIntervId = setInterval(blinkBoard, 1000)
 }
 
 const onStopBoard = function () {
+  $('.video').remove()
   clearInterval(nIntervId)
 }
 
@@ -130,12 +135,13 @@ const onBoardClick = function(li) {
   } else {
      y = (yPrep[2]) * 1
   }
-  board.cellsStore[x][y].intialValue = gameRules.flipValue(board.cellsStore[x][y].intialValue)
+  board.cellsStore[x][y].intialValue = gameRules.flipValue(board.cellsStore[x][y])
+  console.log(board.cellsStore[x][y].intialValue)
   // console.log(clickedClass.split(" "))
   // conwaysRules
-  const test = gameRules.conwaysRules(board.cellsStore[x][y])
+  // const test = gameRules.conwaysRules(board.cellsStore[x][y])
   // const test = board.cellsStore[x][y]
-  console.log(test)
+  // console.log(test)
   $(this).toggleClass('value-1')
   $(this).toggleClass('value-2')
 }

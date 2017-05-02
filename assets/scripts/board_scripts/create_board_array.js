@@ -58,11 +58,12 @@ const updateCellValues = function (twoDimArray, gameLogic) {
     for (let y = 0; y < twoDimArray[x].length; y++) {
       board[x][y] = twoDimArray[x][y]
       // board[x][y].intialValue = gameLogic(twoDimArray[x][y].intialValue)
+      // console.log(twoDimArray[x][y])
       board[x][y].intialValue = gameLogic(twoDimArray[x][y])
     }
   }
   console.log(board)
-  board.boardStore = board
+  board.cellsStore = board
 }
 
 const assignBoardStore = function(data) {
