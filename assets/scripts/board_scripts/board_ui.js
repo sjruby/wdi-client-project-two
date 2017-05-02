@@ -35,6 +35,7 @@ const newGameSucess = function(data) {
       board.boardStore = data
       $('#newGame').modal('hide')
       $('#myForm')[0].reset()
+      $('#newGameMessage').text("")
       // $('#newGameName').val('')
 }
 

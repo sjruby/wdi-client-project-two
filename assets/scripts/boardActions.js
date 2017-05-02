@@ -54,8 +54,8 @@ const onGetBoard = function (li) {
 
 const onBlinkBoard = function () {
   onStopBoard()
-  const videoHTML = videoShooping()
-  $('.aside-1').append(videoHTML)
+  // const videoHTML = videoShooping()
+  // $('.aside-1').append(videoHTML)
   nIntervId = setInterval(blinkBoard, 1000)
 }
 
@@ -97,9 +97,15 @@ const onSaveBoard = function () {
 
 const onSaveNewBoard = function () {
   event.preventDefault()
-    clearCurrentBoard()
   const titlePrep = getFormFields(this)
   const title = titlePrep.board.title
+
+  if(title.length === 0 ) {
+    $('#newGameMessage').text("You have to name the new board...it can be only spaces but please don't do that.  It would be stupid.")
+    return
+  }
+
+  clearCurrentBoard()
   createBoardArrays.newBoard()
   const data = {}
   data.cells = JSON.stringify(board.cellsStore)

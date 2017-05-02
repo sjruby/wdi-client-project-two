@@ -31,6 +31,7 @@ const onChangePWSuccess = () => {
   $message.text('You succesfully changed your PW...now play!')
     $('#changePW').modal('hide')
     $('#change-pw')[0].reset()
+    $('#changePWMessage').text('')
 }
 
 const signOutSuccess = () => {

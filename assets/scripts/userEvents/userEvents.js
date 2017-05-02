@@ -42,6 +42,8 @@ const onSignOut = function (event) {
 const onCloseModal = function() {
   $('#myForm')[0].reset()
   $('#change-pw')[0].reset()
+  $('#newGameMessage').text("")
+  $('#changePWMessage').text('')
 }
 
 module.exports = {
