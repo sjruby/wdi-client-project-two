@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shoop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Do not add `link` tags unless you know what you are doing -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Do not add `script` tags unless you know what you are doing -->
+    <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Baloo|Love+Ya+Like+A+Sister|Roboto|Roboto+Slab|Rokkitt" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <h1>Welcome to Shoop!</h1>
+            <h2 id="message" class="message"> </h2>
+        </header>
+
+
+
+        <aside class="aside aside-1">
+          <div class="about-shoop">
+            <h4> About Shoop </h4>
+            <blockquote>
+                <p>"Shoop" is the lead single released from Salt-N-Pepa's fourth studio album, Very Necessary.</p>
+                <footer><cite>Wikipidea</cite></footer>
+            </blockquote>
+            <p>
+              This app is anything but necessary.
+            </p>
+            <blockquote>
+                <p> Question: "What does 'Shoop' mean in the Salt-N-Pepa song Shoop Ba Doop?"</p>
+                <p>Answer: "Doesn't mean anything. It's just something that's fun to sing."</p>
+                <footer><cite>Cheryl James - NY Daily News Interview</cite></footer>
+            </blockquote>
+            <p>
+              It is intended to meet the requirments of WDI projct two...and entertain it's createor.
+            </p>
+            <p>
+              The title shoop was chosen, because SEE ANSWER ABOVE!
+            </p>
+            <p>
+              Slightly more serious answer - this is intended to be a fun way to make prety pictures/animations.
+            </p>
+          </div>
+        </aside>
+
+        <aside class="aside aside-2" id="signInUp">
+            <div class="sign-up-div">
+                <h2> Sign Up </h2>
+                <form class='userEvents' id='sign-up'>
+                    <div class="form-group">
+                        <input type="text" name="credentials[email]" id="signUpEmail" placeholder="Enter Email">
+                        <input type="password" name="credentials[password]" id="signUpPassword" placeholder="Enter Password">
+                        <input type="password" name="credentials[password_confirmation]" id="signUpPassword_confirmation" placeholder="Confirm Password">
+                    </div>
+                    <button type="submit" class="btn btn-default">Sign Up</button>
+                </form>
+            </div>
+
+            <h2>Sign in</h2>
+            <form class='userEvents' id='sign-in'>
+                <div class="form-group">
+                    <input type="text" name="credentials[email]" id="email" placeholder="Enter Email">
+                    <input type="password" name="credentials[password]" id="password" placeholder="Enter PW">
+                </div>
+                <button type="submit" class="btn btn-default">Sign In</button>
+            </form>
+
+        </aside>
+
+    </div>
+</body>
+
+</html>
